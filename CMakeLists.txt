@@ -6,22 +6,22 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
+# apt package
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(depth_image_proc REQUIRED)
+find_package(depthimage_to_laserscan REQUIRED)
+find_package(robot_state_publisher REQUIRED)
+find_package(xacro REQUIRED)
+# build
+# lidarslam_ros2
+find_package(scanmatcher REQUIRED)
+find_package(ndt_omp_ros2 REQUIRED)
+find_package(lidarslam REQUIRED)
+find_package(lidarslam_msgs REQUIRED)
+find_package(graph_based_slam REQUIRED)
+# openni2_camera
+find_package(openni2_camera REQUIRED)
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
 
 # Include all necessary directory to copy over to 'share' folder
 install(
