@@ -20,6 +20,7 @@ git clone --recursive https://github.com/TiNredmc/lidarslam_ros2
 - joint_state_publisher
 - joint_state_publisher_gui
 - xacro
+- ros-humble-libg2o
 
 # Hardware Requirement (Tentative)
  - Orange Pi Zero 3 4GB
