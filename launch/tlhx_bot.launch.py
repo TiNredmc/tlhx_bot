@@ -82,7 +82,7 @@ def generate_launch_description():
         'main_param_dir',
         default=os.path.join(
             get_package_share_directory(pkg_name),
-            'param',
+            'params',
             'lidarslam.yaml'))
 
     mapping = launch_ros.actions.Node(
