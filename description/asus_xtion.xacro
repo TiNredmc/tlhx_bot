@@ -19,7 +19,7 @@
     <visual>
       <origin xyz=" 0 0 0 " rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://test_pkg/meshes/PS1080-E3IWBD001305.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://tlhx_bot/meshes/PS1080-E3IWBD001305.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
 
