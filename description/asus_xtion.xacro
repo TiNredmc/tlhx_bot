@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <joint name="base_camera_joint" type="fixed">
+    <origin xyz="0.112 0 0.1605"
+            rpy="1.5708 3.1415 1.5708" />
+    <parent link="chassis" />
+    <child link="camera_link" />
+  </joint>
+
+  <link name="camera_link">
+    <inertial>
+      <mass value="0.01" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+        iyy="0.001" iyz="0.0"
+        izz="0.001" />
+    </inertial>
+
+    <visual>
+      <origin xyz=" 0 0 0 " rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://test_pkg/meshes/PS1080-E3IWBD001305.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0380 .1600 0.0210"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="camera_depth_joint" type="fixed">
+    <origin xyz="-0.04 0 0" rpy="1.5708 -1.5708 0" />
+    <parent link="camera_link" />
+    <child link="camera_depth_frame" />
+  </joint>
+
+  <link name="camera_depth_frame">
+    <inertial>
+      <mass value="0.01" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+        iyy="0.001" iyz="0.0"
+        izz="0.001" />
+    </inertial>
+  </link>
+
+  <joint name="camera_depth_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="1.5708 3.1415 1.5708" />
+    <parent link="camera_depth_frame" />
+    <child link="openni_depth_optical_frame" />
+  </joint>
+
+  <link name="openni_depth_optical_frame">
+    <inertial>
+      <mass value="0.001" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+        iyy="0.0001" iyz="0.0"
+        izz="0.0001" />
+    </inertial>
+  </link>
+  
+
+</robot>
