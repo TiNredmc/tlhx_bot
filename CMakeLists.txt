@@ -25,7 +25,7 @@ find_package(openni2_camera REQUIRED)
 
 # Include all necessary directory to copy over to 'share' folder
 install(
- DIRECTORY launch description config maps params meshes
+ DIRECTORY launch description params meshes
  DESTINATION share/${PROJECT_NAME}
 )
 
