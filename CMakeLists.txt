@@ -12,6 +12,7 @@ find_package(depth_image_proc REQUIRED)
 find_package(depthimage_to_laserscan REQUIRED)
 find_package(robot_state_publisher REQUIRED)
 find_package(xacro REQUIRED)
+find_package(imu_filter_madgwick REQUIRED)
 # build
 # lidarslam_ros2
 find_package(scanmatcher REQUIRED)

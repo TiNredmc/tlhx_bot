@@ -17,11 +17,12 @@ git clone --recursive https://github.com/TiNredmc/lidarslam_ros2
 - depth_image_proc
 - depthimage_to_laserscan
 - robot_state_publisher
+- imu_filter_madgwick
 - joint_state_publisher
 - joint_state_publisher_gui
 - xacro
 - ros-humble-libg2o
-
+-
 # Hardware Requirement (Tentative)
  - Orange Pi Zero 3 4GB
     - Ubuntu Jammy server image (download from orange pi website)
