@@ -48,6 +48,33 @@ def generate_launch_description():
             #    remapping = [('depth/image', 'depth_registered/image_raw')],
             ),
 
+            # Create XYZ point cloud
+            launch_ros.descriptions.ComposableNode(
+                package='depth_image_proc',
+                plugin='depth_image_proc::PointCloudXyzNode',
+                name='points_xyz',
+                namespace=namespace,
+                parameters=[{'queue_size': 10}],
+                remappings=[('image_rect', 'depth/image_raw'),
+                            ('camera_info', 'depth/camera_info'),
+                            ('points', 'depth/points')],
+            ),
+
+
+            # Depthimage to laser scan Converter
+            launch_ros.descriptions.ComposableNode(
+                package='depthimage_to_laserscan',
+                plugin='depthimage_to_laserscan::DepthImageToLaserScanROS',
+                name='depthimage_to_laserscan_node',
+                remappings=[('depth','/camera/depth/image_raw'),
+                            ('depth_camera_info', '/camera/depth/camera_info')],
+                parameters=[{'scan_time': 0.033},
+                            {'scan_range_min': 0.4},
+                            {'scan_range_max': 10.0},
+                            {'scan_height': 1},
+                            {'output_frame': 'camera_depth_frame'}]
+            ),
+
              ],
         output = 'screen',
     )
