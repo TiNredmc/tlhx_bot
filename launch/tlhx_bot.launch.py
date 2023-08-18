@@ -78,6 +78,16 @@ def generate_launch_description():
         output = 'screen',
     )
 
+    madgwick_config_dir = os.path.join(get_package_share_directory(pkg_name), 'params')
+
+    madgwick_node = launch_ros.actions.Node(
+                package='imu_filter_madgwick',
+                executable='imu_filter_madgwick_node',
+                name='imu_filter',
+                output='screen',
+                parameters=[os.path.join(madgwick_config_dir, 'imu_filter.yaml')],
+            )
+
     main_param_dir = launch.substitutions.LaunchConfiguration(
         'main_param_dir',
         default=os.path.join(
@@ -103,6 +113,7 @@ def generate_launch_description():
     return launch.LaunchDescription([
         container,
         node_robot_state_publisher,
+        madgwick_node,
         launch.actions.DeclareLaunchArgument(
             'main_param_dir',
             default_value=main_param_dir,
