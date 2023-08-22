@@ -44,7 +44,8 @@ def generate_launch_description():
                 name = 'depth_camera_driver',
                 namespace = namespace,
                 parameters = [{'depth_registration': False},
-                              {'use_device_time': True}],
+                              {'use_device_time': True},
+                              {'depth_mode': 'QVGA_60Hz'}],
             #    remapping = [('depth/image', 'depth_registered/image_raw')],
             ),
 
@@ -113,7 +114,7 @@ def generate_launch_description():
     return launch.LaunchDescription([
         container,
         node_robot_state_publisher,
-        madgwick_node,
+#        madgwick_node,
         launch.actions.DeclareLaunchArgument(
             'main_param_dir',
             default_value=main_param_dir,
