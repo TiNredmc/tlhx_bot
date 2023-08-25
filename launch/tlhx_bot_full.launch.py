@@ -3,6 +3,7 @@ import os
 
 import launch
 import launch_ros.actions
+import launch.actions
 import launch_ros.descriptions
 import xacro
 
@@ -30,8 +31,7 @@ def generate_launch_description():
     )
 
     # Depth camera related. PCL2 and laser_scan
-
-    container = launch_ros.actions.ComposableNodeContainer(
+    depth_cam_container = launch_ros.actions.ComposableNodeContainer(
         name = 'container',
         namespace = namespace,
         package = 'rclcpp_components',
@@ -79,16 +79,6 @@ def generate_launch_description():
         output = 'screen',
     )
 
-    madgwick_config_dir = os.path.join(get_package_share_directory(pkg_name), 'params')
-
-    madgwick_node = launch_ros.actions.Node(
-                package='imu_filter_madgwick',
-                executable='imu_filter_madgwick_node',
-                name='imu_filter',
-                output='screen',
-                parameters=[os.path.join(madgwick_config_dir, 'imu_filter.yaml')],
-            )
-
     main_param_dir = launch.substitutions.LaunchConfiguration(
         'main_param_dir',
         default=os.path.join(
@@ -111,14 +101,14 @@ def generate_launch_description():
         output='screen'
         )
 
+    delayed_lidarslam_ros2 = launch.actions.TimerAction(period=3.0, actions=[mapping, graphbasedslam])
+
     return launch.LaunchDescription([
-        container,
         node_robot_state_publisher,
-#        madgwick_node,
+        depth_cam_container,
         launch.actions.DeclareLaunchArgument(
             'main_param_dir',
             default_value=main_param_dir,
             description='Full path to main parameter file to load'),
-        mapping,
-        graphbasedslam,
+        delayed_lidarslam_ros2,
     ])
