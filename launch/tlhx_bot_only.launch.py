@@ -44,7 +44,8 @@ def generate_launch_description():
                 name = 'depth_camera_driver',
                 namespace = namespace,
                 parameters = [{'depth_registration': False},
-                              {'use_device_time': True}],
+                              {'use_device_time': True},
+                              {'depth_mode': 'QVGA_30Hz'}],
             #    remapping = [('depth/image', 'depth_registered/image_raw')],
             ),
 
