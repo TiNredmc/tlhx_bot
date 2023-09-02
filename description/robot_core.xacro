@@ -23,7 +23,7 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
-	</link>
- 
+	</link> 
+
 	
 </robot>
