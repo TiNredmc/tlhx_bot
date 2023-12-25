@@ -4,9 +4,10 @@
 	<material name="white">
 		<color rgba="1 1 1 1"/>
 	</material>
+
 	
 	<link name="base_link">
-	
+		
 	</link>
 	
 	<joint name="chassis_joint" type="fixed">
