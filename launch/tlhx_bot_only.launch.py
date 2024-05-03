@@ -67,13 +67,13 @@ def generate_launch_description():
                 package='depthimage_to_laserscan',
                 plugin='depthimage_to_laserscan::DepthImageToLaserScanROS',
                 name='depthimage_to_laserscan_node',
-                remappings=[('depth','/camera/depth/image_raw'),
-                            ('depth_camera_info', '/camera/depth/camera_info')],
+                remappings=[('depth','camera/depth/image_raw'),
+                            ('depth_camera_info', 'camera/depth/camera_info')],
                 parameters=[{'scan_time': 0.033},
                             {'scan_range_min': 0.4},
-                            {'scan_range_max': 10.0},
+                            {'scan_range_max': 5.0},
                             {'scan_height': 1},
-                            {'output_frame': 'camera_depth_frame'}]
+                            {'output_frame': 'laser_frame'}]
             ),
 
              ],
