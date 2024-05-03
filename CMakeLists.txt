@@ -15,11 +15,11 @@ find_package(xacro REQUIRED)
 find_package(imu_filter_madgwick REQUIRED)
 # build
 # lidarslam_ros2
-find_package(scanmatcher REQUIRED)
-find_package(ndt_omp_ros2 REQUIRED)
-find_package(lidarslam REQUIRED)
-find_package(lidarslam_msgs REQUIRED)
-find_package(graph_based_slam REQUIRED)
+#find_package(scanmatcher REQUIRED)
+#find_package(ndt_omp_ros2 REQUIRED)
+#find_package(lidarslam REQUIRED)
+#find_package(lidarslam_msgs REQUIRED)
+#find_package(graph_based_slam REQUIRED)
 # openni2_camera
 find_package(openni2_camera REQUIRED)
 
