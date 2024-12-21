@@ -49,15 +49,15 @@
   </link>
 
  <joint name="laser_joint" type="fixed">
-    <origin xyz="-0.04 0 0" rpy="1.5708 -1.5708 0.0" />
-    <parent link="camera_link" />
+    <origin xyz="-0.25 0.0 0" rpy="0.0 -3.1415 0.0" />
+    <parent link="chassis" />
     <child link="laser_frame" />
   </joint>
 
   <link name="laser_frame">
     <inertial>
       <mass value="0.001" />
-      <origin xyz="0 0 0" />
+      <origin xyz="0 -0.2 0" />
       <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
         iyy="0.0001" iyz="0.0"
         izz="0.0001" />

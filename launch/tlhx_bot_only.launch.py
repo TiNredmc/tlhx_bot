@@ -81,6 +81,6 @@ def generate_launch_description():
     )
 
     return launch.LaunchDescription([
-        container,
+       # container,
         node_robot_state_publisher,        
     ])
